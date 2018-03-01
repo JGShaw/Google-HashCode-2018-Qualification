@@ -18,7 +18,7 @@ File.open(ARGV[0], "r") do |f|
 
     @cars = []
     
-    for i in 0..@numVehicles
+    for i in 0..(@numVehicles - 1)
         @cars << Car.new
     end
 
