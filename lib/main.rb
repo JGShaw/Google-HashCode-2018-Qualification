@@ -40,7 +40,7 @@ fileName = File.basename(ARGV[0], File.extname(ARGV[0]))
 File.open("outputs/%s.out" % [fileName], 'w') { |file| 
     @cars.each do |car|
         output_line = car.rides.map{ |ride| ride.ride_id }.join(" ")
-        file.puts car.rides.size.to_s + " " + output_line unless output_line.empty?
+        file.puts car.rides.size.to_s + " " + output_line
     end
 }
 

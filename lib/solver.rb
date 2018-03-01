@@ -6,13 +6,12 @@ module Solver
 
       cars.each do |car|
         time = car.time_for_ride(ride)
-        if min_time.nil? || time < min_time
+        if !time.nil? && (min_time.nil? || time < min_time) 
           min_time = time
           min_car = car
         end
-      end
-      
-      min_car.add_ride(ride)
+      end 
+      min_car.add_ride(ride) unless min_car.nil?
     end
   end
 end

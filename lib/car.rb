@@ -9,7 +9,9 @@ class Car
   end
 
   def time_for_ride(ride)
-    @total_time + time_to_ride_complete(ride)
+    total = @total_time + time_to_ride_complete(ride)
+    return nil if total > ride.end_time
+    total
   end
 
   def add_ride(ride)
@@ -21,8 +23,12 @@ class Car
 
   private
 
+  def time_to_ride_start(ride)
+    (@x - ride.start_x).abs + (@y - ride.start_y).abs
+  end
+
   def time_to_ride_complete(ride)
-    (@x - ride.start_x).abs + (@y - ride.start_y).abs + ride.distance
+   time_to_ride_start(ride) + ride.distance
   end
 
 end
