@@ -22,7 +22,7 @@ class Car
   private
 
   def time_to_ride_complete(ride)
-    (@x - ride.start_x) + (@y - ride.start_y) + ride.distance
+    (@x - ride.start_x).abs + (@y - ride.start_y).abs + ride.distance
   end
 
 end
