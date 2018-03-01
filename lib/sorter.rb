@@ -5,6 +5,12 @@ module Sorter
   def self.sortByStartTimeDesc(rides)
     rides.sort_by{|ride| ride.start_time}.reverse!
   end
+  def self.sortByEndTimeAsc(rides)
+    rides.sort_by!{|ride| ride.end_time}
+  end
+  def self.sortByEndTimeDesc(rides)
+    rides.sort_by{|ride| ride.end_time}.reverse!
+  end
   def self.sortByRideDistanceAsc(rides)
     rides.sort_by!{|ride| ride.distance}
   end

@@ -19,8 +19,10 @@ File.open(ARGV[0], "r") do |f|
 
     Sorter.removeImpossibleJourneys(rides, @numSimSteps)
     Sorter.sortByRideDistanceAsc(rides)
+    Sorter.sortByEndTimeAsc(rides)
     Sorter.sortByStartTimeAsc(rides)
     # Sorter.sortByStartTimeDesc(rides)
+    # Sorter.sortByEndTimeDesc(rides)
     # Sorter.sortByRideDistanceDesc(rides)
 
     @cars = []
