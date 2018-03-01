@@ -1,5 +1,6 @@
 require_relative 'car'
 require_relative 'ride'
+require_relative 'solver'
 
 File.open(ARGV[0], "r") do |f|
 
@@ -21,10 +22,7 @@ File.open(ARGV[0], "r") do |f|
         @cars << Car.new
     end
 
-    @cars[0].rides << rides[0]
-    @cars[0].rides << rides[1]
-    @cars[0].rides << rides[2]
-    @cars[1].rides << rides[1]
+    Solver.solve(@cars, rides)
 
 end
 
