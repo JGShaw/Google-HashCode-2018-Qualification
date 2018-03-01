@@ -16,6 +16,8 @@ File.open(ARGV[0], "r") do |f|
         ride_id += 1
     end
 
+    rides.sort_by!{|ride| ride.start_time}
+
     @cars = []
     
     for i in 0..(@numVehicles - 1)
