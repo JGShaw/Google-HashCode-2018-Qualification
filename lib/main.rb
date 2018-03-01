@@ -1,6 +1,7 @@
 require_relative 'car'
 require_relative 'ride'
 require_relative 'solver'
+require_relative 'sorter'
 
 File.open(ARGV[0], "r") do |f|
 
@@ -16,7 +17,11 @@ File.open(ARGV[0], "r") do |f|
         ride_id += 1
     end
 
-    rides.sort_by!{|ride| ride.start_time}
+    Sorter.removeImpossibleJourneys(rides, @numSimSteps)
+    Sorter.sortByRideDistanceAsc(rides)
+    Sorter.sortByStartTimeAsc(rides)
+    # Sorter.sortByStartTimeDesc(rides)
+    # Sorter.sortByRideDistanceDesc(rides)
 
     @cars = []
     
