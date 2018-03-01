@@ -5,13 +5,24 @@ class Car
     @x = 0
     @y = 0
     @rides = []
+    @total_time = 0
   end
 
   def time_for_ride(ride)
-    @rides.length + 1
+    @total_time + time_to_ride_complete(ride)
   end
 
   def add_ride(ride)
+    @x = ride.end_x
+    @y = ride.end_y
+    @total_time += time_to_ride_complete(ride) 
     @rides << ride
   end
+
+  private
+
+  def time_to_ride_complete(ride)
+    (@x - ride.start_x) + (@y - ride.start_y) + ride.distance
+  end
+
 end
