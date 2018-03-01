@@ -7,9 +7,12 @@ File.open(ARGV[0], "r") do |f|
 
     rides = [] 
 
+    ride_id = 0
+
     f.each do |line|
         startY, startX, endY, endX, earliestStartTime, latestFinishTime = line.split().map {|num| num.to_i}
-        rides << Ride.new(startX, startY, endX, endY, earliestStartTime, latestFinishTime)
+        rides << Ride.new(ride_id, startX, startY, endX, endY, earliestStartTime, latestFinishTime)
+        ride_id += 1
     end
 
     cars = []
