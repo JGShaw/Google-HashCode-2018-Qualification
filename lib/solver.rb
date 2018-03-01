@@ -1,6 +1,9 @@
 module Solver
   def self.solve(cars, rides)
+    i = 0
     rides.each do |ride| 
+      puts i
+      i += 1
       min_time = nil
       min_car = nil
 
